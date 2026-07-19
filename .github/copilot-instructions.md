@@ -120,6 +120,7 @@ docs/38_COPILOT_PROMPT_LIBRARY.md
 
 docs/39_COPILOT_AGENT_EXAMPLES.md
 
+docs/40_AI_AGENT_INITIALIZATION_PROMPT.md
 
 Never start implementation without understanding project context.
 
