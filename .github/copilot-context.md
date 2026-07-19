@@ -1,71 +1,143 @@
+<!-- ====================================================================== -->
+<!-- File: .github/copilot-context.md -->
+<!-- Version: 2.0 -->
+<!-- ====================================================================== -->
+
 # GitHub Copilot Project Context
 
-Version: 2.0
-
----
-
-# Project Overview
-
-Project Name:
+Version 2.0
 
 GAS Enterprise Starter Kit
 
-Purpose:
+---
 
-Develop modern Enterprise Web Applications using Google Apps Script, Google Sheets, HTML5, Tailwind CSS and JavaScript.
+# Project Identity
 
-This repository serves as a reusable starter kit for building scalable business applications with GitHub Copilot Agent.
+## Project Name
+
+GAS Enterprise Starter Kit
 
 ---
 
-# Technology Stack
+# Project Purpose
 
-Backend
+This project is an enterprise-ready application framework designed for building web applications using:
 
-- Google Apps Script (V8 Runtime)
+- Google Apps Script
+- Google Sheets Database
+- HTML Service
+- Tailwind CSS
+- Vanilla JavaScript
 
-Database
+The system supports:
 
-- Google Sheets
-- PropertiesService
-- CacheService
-- LockService
+- Internal business applications
+- Dashboard systems
+- Data management systems
+- Workflow applications
+- API integrations
+
+---
+
+# AI Agent Mission
+
+GitHub Copilot Agent must understand this repository as:
+
+- Enterprise Application Framework
+- AI-Assisted Development Platform
+- Maintainable Long-Term Software System
+
+The Agent must prioritize:
+
+1. Correct Architecture
+2. Security
+3. Maintainability
+4. Scalability
+5. Developer Experience
+
+---
+
+# Technology Context
+
+## Backend
+
+Platform:
+
+Google Apps Script V8
+
+Responsibilities:
+
+- Business logic
+- API endpoints
+- Authentication
+- Data processing
+- External integrations
+
+---
+
+## Frontend
+
+Technology:
+
+- HTML Service
+- Tailwind CSS
+- Vanilla JavaScript
+
+Responsibilities:
+
+- User Interface
+- User Interaction
+- Client-side validation
+
+---
+
+## Database
+
+Primary Database:
+
+Google Sheets
+
+Used for:
+
+- Application data
+- Configuration
+- User management
+- Business records
+
+---
+
+## External Database
+
+Optional:
+
+MySQL Local Database
+
+Integration:
+
+Application
+
+↓
+
+API Layer
+
+↓
+
+Node.js Proxy
+
+↓
+
+MySQL Database
+
+
+---
+
+# Architecture Context
+
+The system follows layered architecture.
+
 
 Frontend
 
-- HTML5
-- Tailwind CSS
-- JavaScript ES6+
-- Google HTML Service
-
-Development
-
-- GitHub
-- GitHub Copilot Agent
-- VS Code
-- clasp
-
----
-
-# Architecture
-
-The project follows:
-
-- MVC Architecture
-- Clean Architecture
-- Repository Pattern
-- Service Layer
-- Component-Based UI
-
-Application Flow
-
-```
-Browser
-
-↓
-
-HTML Service
-
 ↓
 
 Controller
@@ -80,332 +152,252 @@ Repository
 
 ↓
 
-Google Sheets
-```
-
----
-
-# Project Goals
-
-The generated application should be:
-
-- Modern SaaS UI
-- Responsive
-- Fast
-- Secure
-- Easy to maintain
-- AI-assisted
-- Production-ready
-
----
-
-# UI Standard
-
-Use:
-
-- Tailwind CSS
-- Modern SaaS Dashboard
-- Responsive Layout
-- Dark Mode Support
-- Card-based Interface
-- Sidebar Navigation
-- Top Navigation Bar
-- Toast Notifications
-- Modal Dialogs
-- Loading Skeletons
-
-Avoid:
-
-- Bootstrap
-- jQuery
-- Inline CSS
-- Inline JavaScript
-
----
-
-# Coding Standard
-
-JavaScript
-
-- ES6+
-- const / let
-- Arrow Functions
-- Classes
-- Template Literals
-
-Google Apps Script
-
-- V8 Runtime
-- Modular Files
-- Small reusable functions
-- Batch read/write
-- Proper error handling
-
----
-
-# Folder Structure
-
-```
-src/
-
-├── controllers/
-├── services/
-├── repositories/
-├── models/
-├── utils/
-├── web/
-│   ├── components/
-│   ├── css/
-│   ├── js/
-│   └── pages/
-```
-
----
-
-# Database Standard
-
-Google Sheets is the primary database.
-
-Each sheet should contain:
-
-- Primary Key
-- Audit Fields
-- Validation Rules
-- Fixed Schema
-
-Example
-
-Users
-
-- userId
-- username
-- fullName
-- email
-- status
-- createdAt
-- updatedAt
-
----
-
-# API Standard
-
-Every API should return:
-
-Success
-
-```json
-{
-  "success": true,
-  "data": {}
-}
-```
-
-Error
-
-```json
-{
-  "success": false,
-  "message": "Error message"
-}
-```
-
----
-
-# Security Standard
-
-Always:
-
-- Validate input
-- Escape output
-- Protect sensitive sheets
-- Use Script Properties for secrets
-- Check permissions before processing
-
-Never:
-
-- Hard-code passwords
-- Hard-code API Keys
-- Expose stack traces
-- Trust client-side validation
-
----
-
-# Performance Standard
-
-Prefer:
-
-- getValues()
-- setValues()
-- CacheService
-- Batch Processing
-- Lazy Loading
-- Pagination
-
-Avoid:
-
-- Reading cells one by one
-- Writing rows one by one
-- Repeated Spreadsheet calls
-
----
-
-# Development Workflow
-
-Every feature should follow:
-
-Requirement
-
-↓
-
-Analysis
-
-↓
-
-Architecture
+Model
 
 ↓
 
 Database
 
-↓
-
-UI
-
-↓
-
-Backend
-
-↓
-
-Testing
-
-↓
-
-Documentation
-
-↓
-
-Deployment
 
 ---
 
-# Documentation Reference
+# Architecture Rules
 
-GitHub Copilot should use these documents as project knowledge.
+## Frontend
 
-Priority
+Responsible for:
 
-1. .github/copilot-instructions.md
+- UI
+- Interaction
+- Presentation
 
-2. .github/copilot-rules.md
+Must not:
 
-3. docs/00_AI_INSTRUCTIONS.md
-
-4. docs/01_PROJECT_OVERVIEW.md
-
-5. docs/02_SYSTEM_ARCHITECTURE.md
-
-6. docs/03_UI_UX_GUIDELINES.md
-
-7. docs/04_DATABASE_SCHEMA.md
-
-8. docs/05_API_SPECIFICATION.md
-
-9. docs/06_AUTHENTICATION_RBAC.md
-
-10. docs/07_CODING_STANDARDS.md
-
-11. docs/08_COMPONENT_LIBRARY.md
-
-12. docs/09_FOLDER_STRUCTURE.md
-
-13. docs/10-30 documentation
+- Access database directly
+- Contain business rules
 
 ---
 
-# Code Generation Principles
+## Controller
 
-Before writing code:
+Responsible for:
 
-- Understand the requirement.
-- Review existing modules.
-- Reuse existing components.
-- Avoid duplicated logic.
-- Follow project architecture.
-
-When writing code:
-
-- Keep functions small.
-- Separate business logic.
-- Add validation.
-- Handle errors.
-- Write readable code.
-
-After writing code:
-
-- Explain changes.
-- List modified files.
-- Suggest testing steps.
-- Recommend improvements.
+- Request handling
+- API communication
+- Input processing
 
 ---
 
-# Preferred Design Pattern
+## Service
 
-```
-Controller
+Responsible for:
+
+- Business logic
+- Workflow
+- Validation
+
+---
+
+## Repository
+
+Responsible for:
+
+- Data access
+- CRUD operations
+- Database abstraction
+
+---
+
+## Model
+
+Responsible for:
+
+- Data structure
+- Object definition
+- Validation model
+
+---
+
+# Core Application Concepts
+
+## Authentication
+
+System supports:
+
+- User authentication
+- Session management
+- Permission verification
+
+---
+
+## Authorization
+
+Uses:
+
+RBAC
+
+Structure:
+
+
+User
 
 ↓
 
-Service
+Role
 
 ↓
 
-Repository
+Permission
 
 ↓
 
-Google Sheets
-```
+Action
 
-Never access Spreadsheet directly from HTML or UI.
 
 ---
 
-# GitHub Copilot Responsibilities
+# Common Application Modules
 
-GitHub Copilot should behave as:
+Expected modules:
 
-- Software Architect
-- Google Apps Script Expert
-- JavaScript Expert
-- UI/UX Designer
-- Database Designer
-- Security Reviewer
-- Code Reviewer
+## User Management
 
-Copilot should prioritize quality over speed.
+- Users
+- Roles
+- Permissions
 
 ---
 
-# Definition of Done
+## Dashboard
 
-A feature is complete only when:
-
-- Requirement implemented
-- UI completed
-- Backend completed
-- Validation completed
-- Error handling completed
-- Documentation updated
-- Testing completed
-- No duplicated code
-- Follows project standards
+- Statistics
+- Charts
+- Reports
 
 ---
 
-# Final Context
+## Data Management
 
-This repository is intended to become a reusable Enterprise Starter Kit.
+- CRUD operations
+- Search
+- Filtering
+- Export
 
-Every generated file should be production-ready, modular, maintainable, secure and consistent with the project documentation.
+---
+
+## Configuration
+
+- System settings
+- Data mapping
+- Application parameters
+
+---
+
+# Repository Structure Context
+
+
+.github/
+
+├── copilot-instructions.md
+├── copilot-context.md
+└── copilot-rules.md
+
+docs/
+
+├── Architecture Documents
+├── Development Guides
+├── AI Guides
+├── Security Guides
+└── Operation Guides
+
+src/
+
+├── frontend
+├── backend
+├── services
+└── utils
+
+
+---
+
+# Documentation Knowledge Base
+
+Important documents:
+
+## Foundation
+
+
+docs/00-09
+
+
+---
+
+## Project Rules
+
+
+docs/PROJECT_RULES.md
+docs/30_AI_CONTEXT.md
+
+
+---
+
+## AI Development
+
+
+docs/31_COPILOT_AGENT_GUIDE.md
+docs/32_PROMPT_TEMPLATES.md
+
+
+---
+
+## Enterprise Operation
+
+
+docs/33_SECURITY_GUIDE.md
+docs/34_DEPLOYMENT_GUIDE.md
+docs/35_DEVELOPMENT_WORKFLOW.md
+docs/36_AI_AGENT_OPERATION_GUIDE.md
+
+
+---
+
+# AI Agent Decision Rules
+
+Before making decisions:
+
+Analyze:
+
+- Existing architecture
+- Existing patterns
+- Security impact
+- Maintenance impact
+
+Prefer:
+
+- Simple solutions
+- Reusable components
+- Existing libraries
+- Documented approaches
+
+---
+
+# Business Context
+
+This framework is intended for:
+
+- Healthcare applications
+- Government systems
+- Organization dashboards
+- Data management systems
+
+The design should support:
+
+- Data security
+- Auditability
+- Long-term maintenance
+
+---
+
+# End of Copilot Context
+
+Version 2.0
