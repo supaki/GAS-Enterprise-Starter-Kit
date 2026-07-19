@@ -2,24 +2,119 @@
 
 ## GAS Enterprise Starter Kit
 
-Version 2.0
+Version 2.1
+
+---
+
+# Purpose
+
+This document provides project context information for GitHub Copilot Agent.
+
+Its purpose is to help AI understand:
+
+- What this project is
+- Why it exists
+- How it is structured
+- Which technologies are used
+- How development should be performed
+
+This file is the **Project Context Layer**.
+
+It does not replace detailed documentation.
+
+For complete knowledge, AI MUST read:
+docs/30_AI_CONTEXT.md
+
+
+---
+
+# AI Context Hierarchy
+
+The repository uses a layered AI knowledge system.
+
+
+.github/copilot-instructions.md
+
+    ↓
+
+.github/copilot-context.md
+
+    ↓
+
+.github/copilot-rules.md
+
+    ↓
+
+docs/README.md
+
+    ↓
+
+docs/30_AI_CONTEXT.md
+
+    ↓
+
+Source Code
+
+
+---
+
+# AI Agent Startup Sequence
+
+When starting a new development session:
+
+Follow:
+
+
+Understand AI behavior rules
+
+ ↓
+
+Load project context
+
+ ↓
+
+Apply repository rules
+
+ ↓
+
+Read documentation map
+
+ ↓
+
+Load AI knowledge base
+
+ ↓
+
+Initialize development context
+
+ ↓
+Start implementation
+
+Reference:
+
+
+docs/40_AI_AGENT_INITIALIZATION_PROMPT.md
+
 
 ---
 
 # Project Identity
 
-This repository is a production-oriented Google Apps Script Enterprise Starter Kit.
+## Name
 
-The purpose is to provide a reusable foundation for building:
+GAS Enterprise Starter Kit
 
-- Internal business applications
-- Healthcare applications
-- Community health systems
-- Data management systems
-- Dashboard applications
-- Automation workflows
+---
 
-using:
+## Project Type
+
+Enterprise Application Development Framework
+
+---
+
+## Main Purpose
+
+Provide a reusable foundation for building production-ready applications using:
 
 - Google Apps Script
 - Google Sheets
@@ -32,25 +127,167 @@ using:
 
 # Project Vision
 
-Create a development framework that enables:
-Fast Development
+The project combines:
+
+
+Rapid Development
 
 Clean Architecture
 
-Secure Implementation
+Security
+
+Maintainability
 
 AI-Assisted Engineering
-
-Long-Term Maintenance
 
 
 ---
 
-# Application Architecture
+# Target Users
+
+The framework supports:
+
+## Developers
+
+For:
+
+- Web application development
+- Internal systems
+- Automation solutions
+
+
+## Organizations
+
+For:
+
+- Data management systems
+- Workflow systems
+- Reporting systems
+
+
+## Healthcare Teams
+
+For:
+
+- Primary care applications
+- Community health systems
+- Patient management
+- Notification systems
+
+---
+
+# Core Technology Context
+
+---
+
+# Backend
+
+Technology:
+
+
+Google Apps Script V8
+
+
+Development style:
+
+- Modular
+- Class-based
+- Service-oriented
+
+Preferred:
+
+- ES2022 syntax
+- JSDoc
+- Clean Code
+
+---
+
+# Frontend
+
+Technology:
+
+
+HTML Service
+
+Tailwind CSS
+
+Vanilla JavaScript
+
+
+UI goals:
+
+- Responsive
+- Mobile First
+- Modern SaaS style
+- Accessible
+
+---
+
+# Database
+
+Primary database:
+
+
+Google Sheets
+
+
+Used for:
+
+- Application data
+- Configuration
+- Master data
+- Transaction data
+- Logs
+
+---
+
+# External Database Integration
+
+Supported architecture:
+
+
+Application
+
+↓
+
+API Layer
+
+↓
+
+External Database
+
+
+Example:
+
+
+Google Apps Script
+
+↓
+
+Node.js API
+
+↓
+
+MySQL
+
+
+Never connect directly from frontend or GAS to unsecured databases.
+
+---
+
+# System Architecture Context
 
 The project follows:
 
-## Layered MVC Architecture
+
+MVC
+
+Service Layer
+
+Repository Pattern
+
+
+Architecture:
 
 
 User Interface
@@ -74,138 +311,88 @@ Data Source
 
 ---
 
-# Layer Responsibilities
+# Layer Responsibility Summary
 
 ## Presentation Layer
 
-Responsible for:
+Responsible:
 
 - UI rendering
 - User interaction
-- Form handling
-- Displaying results
+- Displaying information
 
-Technology:
 
-- HTML Service
-- Tailwind CSS
-- Vanilla JavaScript
+Must not:
+
+- Access database
+- Implement business rules
 
 ---
 
 ## Controller Layer
 
-Responsible for:
+Responsible:
 
-- Receiving requests
+- Request handling
 - Input routing
-- Calling services
-- Returning responses
+- Response formatting
 
-Should NOT contain:
 
-- Business logic
-- Database operations
+Must not:
+
+- Contain complex business logic
+- Directly access database
 
 ---
 
 ## Service Layer
 
-Responsible for:
+Main business layer.
+
+Responsible:
 
 - Business rules
-- Data processing
 - Validation
-- Workflow management
+- Workflow
+- Permission checks
 
 ---
 
 ## Repository Layer
 
-Responsible for:
+Responsible:
 
 - Data access
-- Google Sheets operations
+- Spreadsheet operations
 - External API communication
 
-Business logic must not directly access data sources.
+---
+
+# Application Capabilities
+
+The framework supports:
 
 ---
 
-# Technology Context
-
-## Backend
-
-Google Apps Script V8
-
-Preferred:
-
-- ES2022 syntax
-- Class-based design
-- Modular files
-- JSDoc documentation
-
----
-
-## Database
-
-Primary database:
-
-Google Sheets
-
-
-Used for:
-
-- Application data
-- Configuration
-- Mapping
-- User settings
-
-
-Database access must go through Repository Layer.
-
----
-
-## Frontend
-
-Technology:
-
-- HTML Service
-- Tailwind CSS
-- Vanilla JavaScript
-
-
-UI philosophy:
-
-Modern SaaS Application
-
-Reference:
-
-- Google Workspace
-- Notion
-- Linear
-- Vercel
-- Supabase
-
----
-
-# Common System Components
-
-The repository supports:
-
-## Authentication
+# Authentication
 
 Features:
 
-- Login
+- User identity verification
 - Session management
-- User validation
+- User lifecycle
 
 ---
 
-## RBAC
+# Authorization
 
-Role Based Access Control:
+Uses:
+
+
+RBAC
+
+(Role Based Access Control)
+
 
 Example:
 
@@ -219,76 +406,55 @@ Staff
 Viewer
 
 
-Permissions must be validated.
-
 ---
 
-## Dashboard
+# Dashboard Systems
 
-Common features:
+Supports:
 
-- KPI cards
+- KPI dashboard
 - Charts
-- Tables
-- Filters
 - Reports
+- Filtering
+- Data visualization
 
 ---
 
-## API Integration
+# API Integration
 
-Supported pattern:
+Supports:
 
-
-Google Apps Script
-
-↓
-
-REST API
-
-↓
-
-External Service
-
-
-Examples:
-
-- Node.js API
-- MySQL
-- LINE Messaging API
+- REST API
+- External services
+- Notification systems
 
 ---
 
-# Healthcare Application Context
+# Healthcare Context
 
-This framework can support healthcare systems such as:
-
-- Primary Care Applications
-- Community Health Systems
-- Patient Management
-- Appointment Systems
-- Health Dashboard
-- Notification Systems
-
-Example integrations:
+Possible integrations:
 
 
 JHCIS
 
 ↓
 
-API Layer
+API Proxy
 
 ↓
 
-GAS Application
+Google Apps Script
+
+↓
+
+Healthcare Application
 
 
 ---
 
-# Development Rules
+# Development Principles
 
-All development must follow:
+All development follows:
 
 ## Documentation First
 
@@ -306,198 +472,41 @@ docs/PROJECT_RULES.md
 
 ---
 
-# Important Documentation
+## Architecture First
 
-## Architecture
-
-
-docs/02_SYSTEM_ARCHITECTURE.md
-
+Design before implementation.
 
 ---
 
-## Database
+## Security First
 
+Protect:
 
-docs/04_DATABASE_SCHEMA.md
-
-
----
-
-## Coding Rules
-
-
-docs/07_CODING_STANDARDS.md
-
+- Credentials
+- Personal data
+- System access
 
 ---
 
-## Security
+# AI Agent Behavior
 
-
-docs/33_SECURITY_GUIDE.md
-
-
----
-
-## Deployment
-
-
-docs/34_DEPLOYMENT_GUIDE.md
-
-
----
-
-## AI Development
-
-
-docs/38_COPILOT_PROMPT_LIBRARY.md
-
-docs/39_COPILOT_AGENT_EXAMPLES.md
-
-docs/40_AI_AGENT_INITIALIZATION_PROMPT.md
-
-AI Agent Startup Process:
-
-1. Read repository instructions
-
-2. Load project context
-
-3. Review AI rules
-
-4. Initialize development session
-
-5. Begin implementation
----
-
-# AI Agent Development Behavior
-
-GitHub Copilot Agent should behave as:
+AI should behave as:
 
 
 Software Architect
 
 Senior Developer
 
-Code Reviewer
-
 Security Reviewer
 
-
----
-
-# Before Creating Code
-
-AI should:
-
-1. Understand requirement
-2. Review existing architecture
-3. Identify affected modules
-4. Explain approach
-5. Implement solution
-6. Review output
-
----
-
-# Code Quality Expectations
-
-Generated code should be:
-
-- Readable
-- Maintainable
-- Reusable
-- Secure
-- Documented
-
----
-
-# Security Context
-
-Sensitive information:
-
-Never expose:
-
-- Passwords
-- API tokens
-- Database credentials
-- Personal data
-
----
-
-# Data Protection Rules
-
-Always:
-
-- Validate input
-- Control permissions
-- Protect sensitive data
-- Log important actions
-
----
-
-# Integration Context
-
-External integrations should use:
-
-
-Application
-
-↓
-
-Service Layer
-
-↓
-
-API Client
-
-↓
-
-External System
-
-
-Never:
-
-
-Frontend
-
-↓
-
-External Database
+Code Reviewer
 
 
 ---
 
-# Repository Organization
+# AI Development Workflow
 
-Follow:
-
-
-.github/
-
-AI Instructions
-
-docs/
-
-Documentation
-
-src/
-
-Application Code
-
-tests/
-
-Testing
-
-config/
-
-Configuration
-
-
----
-
-# AI Agent Preferred Workflow
-
-For every feature:
+For every task:
 
 
 Requirement
@@ -533,72 +542,159 @@ Documentation
 
 ---
 
-# Expected AI Response Format
+# AI Response Expectation
 
-When assisting development:
-
-Use:
+Preferred response format:
 
 Analysis
 
-Explain understanding
+Understanding of problem
 
 Plan
 
-Describe approach
+Implementation approach
 
 Changes
 
-List files affected
+Files affected
 
 Implementation
 
-Provide code
+Code or modifications
 
 Testing
 
-Explain verification
+Verification
 
 Documentation
 
-List updates
+Updates required
 
 
 ---
 
-# Common Mistakes to Avoid
+# Code Quality Expectations
 
-Never:
+Generated code should be:
 
-- Create files randomly
-- Ignore existing components
-- Duplicate logic
-- Put business logic in UI
-- Put database logic in controllers
-- Skip security review
+- Readable
+- Maintainable
+- Secure
+- Reusable
+- Documented
 
 ---
 
-# Project Success Criteria
+# Security Context
 
-A successful implementation must be:
+Never expose:
+
+- Passwords
+- API keys
+- Tokens
+- Database credentials
 
 
-Functional
+Use:
 
-Secure
+- Script Properties
+- Secure configuration
 
-Maintainable
+---
 
-Scalable
+# Performance Context
 
-Documented
+Prefer:
 
+- Batch operations
+- Efficient data access
+- Caching where appropriate
+
+Avoid:
+
+- Repeated Spreadsheet API calls
+- Unnecessary processing
+
+---
+
+# Repository Structure Context
+
+Expected structure:
+
+
+.github/
+
+AI Configuration
+
+docs/
+
+Documentation
+
+src/
+
+Application Code
+
+tests/
+
+Testing
+
+config/
+
+Configuration
+
+
+---
+
+# Documentation Relationship
+
+Important files:
+
+| File | Purpose |
+|-|-|
+| copilot-instructions.md | AI behavior |
+| copilot-context.md | Project understanding |
+| copilot-rules.md | Enforcement rules |
+| 30_AI_CONTEXT.md | Complete AI knowledge |
+| 40_AI_AGENT_INITIALIZATION_PROMPT.md | Session startup |
+
+---
+
+# Completion Definition
+
+A task is complete only when:
+
+
+Feature Works
+
+Architecture Correct
+
+Security Checked
+
+Code Reviewed
+
+Documentation Updated
+
+
+---
+
+# Final Context Instruction
+
+You are working inside an enterprise software repository.
+
+Understand the project first.
+
+Follow the architecture.
+
+Respect security rules.
+
+Create maintainable solutions.
+
+Use documentation as the source of truth.
 
 ---
 
 # End of GitHub Copilot Project Context
 
-Version 2.0
+Version 2.1
 
 GAS Enterprise Starter Kit
