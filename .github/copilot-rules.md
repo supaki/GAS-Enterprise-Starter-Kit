@@ -1,222 +1,411 @@
-<!-- ====================================================================== -->
-<!-- File: .github/copilot-rules.md -->
-<!-- Version: 2.0 -->
-<!-- ====================================================================== -->
+# GitHub Copilot Repository Rules
 
-# GitHub Copilot Development Rules
+## GAS Enterprise Starter Kit
 
 Version 2.0
-
-GAS Enterprise Starter Kit
 
 ---
 
 # Purpose
 
-This document defines mandatory development rules for AI Agent and developers.
+This document defines mandatory rules for GitHub Copilot Agent when working inside this repository.
 
-Rules apply to:
+These rules ensure:
 
-- Code generation
-- Code modification
-- Architecture decisions
-- Security implementation
-- Documentation updates
+- Consistent architecture
+- Secure development
+- Maintainable code
+- Production readiness
+- Documentation synchronization
 
----
-
-# General Rules
-
-Always:
-
-✓ Understand requirements first
-
-✓ Follow repository architecture
-
-✓ Reuse existing patterns
-
-✓ Keep changes focused
-
-✓ Document important decisions
-
-
-Never:
-
-✗ Create unnecessary complexity
-
-✗ Ignore existing code structure
-
-✗ Modify unrelated files
-
-✗ Hard-code sensitive information
+The AI Agent MUST follow these rules.
 
 ---
 
-# File Organization Rules
+# Rule Priority
 
-Follow:
-Feature
+When generating or modifying code, follow this priority:
+Security Rules
 
-├── Controller
+↓
 
-├── Service
+Architecture Rules
 
-├── Repository
+↓
 
-├── Model
+Repository Rules
 
-├── UI
+↓
 
-└── Documentation
+Coding Standards
+
+↓
+
+Feature Requirements
+
+Security and architecture always override convenience.
+
+---
+
+# Rule 01: Documentation First
+
+Before any implementation:
+
+AI MUST review:
+
+
+.github/copilot-instructions.md
+
+.github/copilot-context.md
+
+.github/copilot-rules.md
+
+docs/README.md
+
+docs/30_AI_CONTEXT.md
+
+docs/PROJECT_RULES.md
+
+
+For specific tasks, review related documentation.
+
+Examples:
+
+Database:
+
+
+docs/04_DATABASE_SCHEMA.md
+
+
+Security:
+
+
+docs/33_SECURITY_GUIDE.md
+
+
+Deployment:
+
+
+docs/34_DEPLOYMENT_GUIDE.md
 
 
 ---
 
-# Naming Convention
+# Rule 02: Analyze Before Coding
 
-## JavaScript Variables
+AI MUST NOT immediately generate code.
+
+Required process:
+
+
+Requirement Analysis
+
+↓
+
+Impact Analysis
+
+↓
+
+Implementation Plan
+
+↓
+
+Code Generation
+
+
+For complex changes:
+
+Ask for approval before implementation.
+
+---
+
+# Rule 03: Respect Existing Architecture
+
+The application MUST follow:
+
+
+MVC
+
+Service Layer
+
+Repository Pattern
+
+
+Required flow:
+
+
+UI
+
+↓
+
+Controller
+
+↓
+
+Service
+
+↓
+
+Repository
+
+↓
+
+Data Source
+
+
+---
+
+# Rule 04: Separation of Responsibility
+
+Forbidden:
+
+## Controller
+
+Must NOT contain:
+
+- Database queries
+- Complex business logic
+
+---
+
+## Service
+
+Must NOT contain:
+
+- UI rendering
+- Direct spreadsheet manipulation
+
+---
+
+## Repository
+
+Must NOT contain:
+
+- User interface logic
+- Business decisions
+
+---
+
+# Rule 05: File Organization
+
+AI MUST follow:
+
+
+Existing folder structure
+
+
+Before creating files:
+
+Check:
+
+
+docs/09_FOLDER_STRUCTURE.md
+
+
+Never create:
+
+- Random files
+- Duplicate modules
+- Unused components
+
+---
+
+# Rule 06: Naming Convention
 
 Use:
 
-camelCase
+## Files
 
-Example:
-
-```javascript
-userProfile
-patientData
-Classes
-
-Use:
 
 PascalCase
 
-Example:
-
-UserService
-ReportController
-Functions
-
-Use:
-
-Verb + Description
 
 Example:
 
-getUserData()
 
-createReport()
+PatientService.gs
 
-validatePermission()
-JavaScript Rules
+UserRepository.gs
+
+
+---
+
+## Functions
+
+
+camelCase
+
+
+Example:
+
+
+getPatientList()
+
+validateUser()
+
+
+---
+
+## Classes
+
+
+PascalCase
+
+
+Example:
+
+
+class PatientService
+
+
+---
+
+# Rule 07: Code Quality
+
+Generated code MUST:
+
+- Be readable
+- Be maintainable
+- Include comments
+- Include JSDoc
+- Handle errors
+- Avoid duplication
+
+---
+
+# Rule 08: Google Apps Script Rules
+
+When writing GAS:
+
+Follow:
+
+- V8 Runtime
+- ES2022 syntax
+- Efficient Spreadsheet operations
+- Proper authorization handling
+
+
+Prefer:
+
+
+Batch read
+
+↓
+
+Process data
+
+↓
+
+Batch write
+
+
+Avoid:
+
+
+Loop
+
+↓
+
+Spreadsheet API call
+
+
+---
+
+# Rule 09: Google Sheets Database Rules
+
+Never access Sheets directly from UI.
+
+Required:
+
+
+Service
+
+↓
+
+Repository
+
+↓
+
+Spreadsheet
+
+
+---
+
+All database operations must include:
+
+- Validation
+- Error handling
+- Logging
+
+---
+
+# Rule 10: Security Rules
+
+NEVER:
+
+Store:
+
+- Password
+- Token
+- API Key
+- Secret
+
+inside source code.
+
+---
 
 Use:
 
-ES2022
-const
-let
-Arrow Functions
-Async/Await
+- Script Properties
+- Environment variables
+- Secure configuration
 
-Avoid:
+---
 
-var
-Global variables
-Duplicate functions
-Google Apps Script Rules
+# Rule 11: Input Validation
 
-Organize code:
+All external input MUST be validated.
 
-Code.gs
+Examples:
 
-↓
+- Form data
+- API requests
+- User parameters
 
-Controllers
+Validate:
 
-↓
+- Type
+- Format
+- Permission
+- Business rules
 
-Services
+---
 
-↓
+# Rule 12: Authentication Rules
 
-Repositories
+Authentication implementation must include:
 
-↓
+- Identity verification
+- Session handling
+- Access control
 
-Utilities
+---
 
-Avoid:
+Never trust:
 
-Single large script file
-Mixed responsibilities
-Frontend Rules
+- Client-side permission
+- Hidden UI elements
 
-Use:
+Authorization must happen server-side.
 
-HTML5
-Tailwind CSS
-Vanilla JavaScript
+---
 
-Must support:
+# Rule 13: RBAC Rules
 
-Responsive design
-Mobile first
-Accessibility
+Permission checks MUST exist.
 
-Avoid:
+Required flow:
 
-Inline CSS
-Inline JavaScript
-Duplicate components
-Database Rules
-
-Google Sheets:
-
-Must:
-
-Define schema
-Validate data
-Use Repository layer
-Protect sensitive columns
-
-Never:
-
-Access sheets directly from UI
-Delete data without validation
-API Rules
-
-API must include:
-
-Validation
-Error handling
-Response format
-Logging
-
-Example response:
-
-{
- "success": true,
- "data": {}
-}
-Security Rules
-
-Mandatory:
-
-Validate input
-Check authorization
-Protect secrets
-Log important actions
-
-Never:
-
-Commit credentials
-Expose tokens
-Skip permission checks
-Authentication Rules
-
-All protected features must:
-
-Verify:
 
 User
 
@@ -230,96 +419,274 @@ Permission
 
 ↓
 
-Action
-Error Handling Rules
+Resource Access
 
-Always:
 
-Catch errors
-Return safe messages
-Log details internally
+---
 
-Never:
+Never allow:
 
-Display system errors directly
-Hide important failures
-Testing Rules
 
-Every feature should consider:
+Frontend decides permission
 
-Unit Testing
-Integration Testing
-User Acceptance Testing
-Documentation Rules
 
-Update documentation when:
+---
 
-Adding feature
-Changing architecture
-Changing API
-Changing database
-Changing workflow
-Git Rules
+# Rule 14: API Rules
 
-Commit format:
+All APIs must define:
 
-type: description
+- Request format
+- Response format
+- Authentication
+- Error handling
 
-Allowed types:
+Standard response:
 
-feat
-fix
-docs
-refactor
-test
-security
+Success:
+
+```json
+{
+ "success": true,
+ "data": {}
+}
+
+Error:
+
+{
+ "success": false,
+ "message": ""
+}
+Rule 15: External Integration Rules
+
+External systems:
 
 Example:
 
-feat: add user dashboard
-Deployment Rules
+MySQL
 
-Before deployment:
+LINE API
 
-Check:
+External REST API
 
-Testing complete
-Security reviewed
-Backup available
-Configuration verified
-AI Agent Rules
+Must use:
 
-AI Agent must:
+Service Layer
 
-✓ Explain plan before major changes
+↓
 
-✓ Identify affected files
+API Client
 
-✓ Follow architecture
+↓
 
-✓ Review generated code
+External System
 
-✓ Suggest tests
+Never expose:
 
-AI Agent must not:
+Credentials
+Internal database
+Private endpoints
+Rule 16: UI Development Rules
 
-✗ Deploy without approval
+UI must:
 
-✗ Change architecture silently
+Be responsive
+Support mobile
+Follow design system
+Use reusable components
 
-✗ Remove security controls
+Include when appropriate:
 
-✗ Generate incomplete code
+Loading state
+Empty state
+Error message
+Toast notification
+Rule 17: Error Handling
 
-Quality Standard
+Every important function MUST handle errors.
 
-Generated code must be:
+Required:
 
-Readable
-Maintainable
-Secure
-Tested
-Documented
-End of Copilot Rules
+try {
+
+}
+
+catch(error){
+
+}
+
+Error messages:
+
+Must be:
+
+User friendly
+Logged internally
+
+Never expose:
+
+Stack traces
+Secrets
+Database information
+Rule 18: Testing Requirement
+
+Every feature should include:
+
+Functional testing
+Error testing
+Security testing
+
+Before completion:
+
+Verify:
+
+Requirement
+
+↓
+
+Implementation
+
+↓
+
+Expected Result
+Rule 19: Documentation Update
+
+After significant changes:
+
+Update:
+
+README
+
+AI Context
+
+Architecture
+
+API Documentation
+
+Security Documentation
+
+Documentation must match implementation.
+
+Rule 20: Code Review Requirement
+
+Before finalizing:
+
+AI should review:
+
+Architecture
+Correct layers
+No duplicated logic
+Security
+No exposed secrets
+Permission validation
+Quality
+Maintainability
+Readability
+Performance
+Efficient operations
+Rule 21: Change Management
+
+Before modifying multiple files:
+
+Provide:
+
+Files affected
+
+Reason
+
+Expected impact
+
+Risk
+
+Avoid unnecessary changes.
+
+Rule 22: Production Readiness
+
+Before marking complete:
+
+Confirm:
+
+[ ] Architecture compliant
+
+[ ] Security reviewed
+
+[ ] Error handling complete
+
+[ ] Validation added
+
+[ ] Testing performed
+
+[ ] Documentation updated
+
+[ ] Deployment considered
+Rule 23: AI Response Rules
+
+AI responses should include:
+
+Analysis
+
+↓
+
+Plan
+
+↓
+
+Changes
+
+↓
+
+Implementation
+
+↓
+
+Testing
+
+↓
+
+Documentation
+Forbidden Actions
+
+AI MUST NOT:
+
+❌ Ignore documentation
+
+❌ Bypass security
+
+❌ Hard-code secrets
+
+❌ Create duplicate architecture
+
+❌ Modify unrelated files
+
+❌ Remove existing features without approval
+
+❌ Generate incomplete placeholder code
+
+Final Rule
+
+The AI Agent must optimize for:
+
+Security
+
++
+
+Quality
+
++
+
+Maintainability
+
++
+
+Scalability
+
++
+
+Long-term Success
+
+Not only immediate functionality.
+
+End of GitHub Copilot Repository Rules
 
 Version 2.0
+
+GAS Enterprise Starter Kit
