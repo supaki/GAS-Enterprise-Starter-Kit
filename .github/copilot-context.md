@@ -355,7 +355,19 @@ docs/38_COPILOT_PROMPT_LIBRARY.md
 
 docs/39_COPILOT_AGENT_EXAMPLES.md
 
+docs/40_AI_AGENT_INITIALIZATION_PROMPT.md
 
+AI Agent Startup Process:
+
+1. Read repository instructions
+
+2. Load project context
+
+3. Review AI rules
+
+4. Initialize development session
+
+5. Begin implementation
 ---
 
 # AI Agent Development Behavior
