@@ -1,52 +1,35 @@
 ---
-name: Bug Report
-about: Report a bug or unexpected behavior
-title: "[BUG] "
-labels: bug
+name: Feature Request
+about: Suggest a new feature or improvement
+title: "[FEATURE] "
+labels: enhancement
 assignees: ""
 ---
 
-# Bug Description
+# Feature Summary
 
-Provide a clear and concise description of the bug.
-
----
-
-# Steps to Reproduce
-
-1.
-2.
-3.
+Provide a short description of the proposed feature.
 
 ---
 
-# Expected Behavior
+# Problem Statement
 
-Describe what you expected to happen.
-
----
-
-# Actual Behavior
-
-Describe what actually happened.
+What problem does this feature solve?
 
 ---
 
-# Screenshots (Optional)
+# Proposed Solution
 
-Attach screenshots if available.
-
----
-
-# Environment
-
-- OS:
-- Browser:
-- Google Apps Script Runtime:
-- Project Version:
+Describe your proposed solution.
 
 ---
 
-# Additional Information
+# Expected Benefits
 
-Add any other relevant information here.
+Explain the expected benefits of this feature.
+
+---
+
+# Additional Notes
+
+Include any additional information, mockups, or references.
