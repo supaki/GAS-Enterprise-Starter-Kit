@@ -416,8 +416,9 @@ docs/
 
 ├── 38_COPILOT_PROMPT_LIBRARY.md
 
-└── 39_COPILOT_AGENT_EXAMPLES.md
+├── 39_COPILOT_AGENT_EXAMPLES.md
 
+└── 40_AI_AGENT_INITIALIZATION_PROMPT.md
 
 ---
 
@@ -549,3 +550,37 @@ Review
       ↓
 Deployment
 
+---
+
+## AI Agent Initialization Prompt
+
+### 40_AI_AGENT_INITIALIZATION_PROMPT.md
+
+Purpose:
+
+Initialize GitHub Copilot Agent
+before starting development.
+
+Use when:
+
+- Opening repository first time
+- Starting new AI session
+- Onboarding new developer
+- Beginning major feature development
+
+
+Workflow:
+
+Read documentation
+
+↓
+
+Initialize AI Agent
+
+↓
+
+Confirm understanding
+
+↓
+
+Start development
