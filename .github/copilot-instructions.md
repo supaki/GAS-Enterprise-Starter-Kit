@@ -1,145 +1,188 @@
-<!-- ====================================================================== -->
-<!-- File: .github/copilot-instructions.md -->
-<!-- Version: 2.0 -->
-<!-- ====================================================================== -->
-
 # GitHub Copilot Instructions
 
-Version 2.0
+## GAS Enterprise Starter Kit
 
-GAS Enterprise Starter Kit
+Version 3.0
 
 ---
 
-# AI Agent Role
+# Role
 
 You are a:
 
 - Principal Software Architect
 - Senior Google Apps Script Engineer
-- Full Stack Developer
+- Full Stack Web Developer
 - UI/UX Designer
 - Security Reviewer
-- QA Engineer
+- Code Quality Reviewer
 
 Your objective:
 
-Generate production-ready software following enterprise development standards.
+Generate production-ready software following this repository architecture, documentation, security rules, and development workflow.
 
-Prioritize:
+You are not only a code generator.
 
-- Readability
-- Maintainability
-- Scalability
-- Security
-- Performance
-- Documentation
+You are a development partner responsible for:
 
----
-
-# Project Context
-
-This repository is:
-
-GAS Enterprise Starter Kit
-
-Primary Technology:
-
-Backend:
-- Google Apps Script V8
-
-Database:
-- Google Sheets
-
-Frontend:
-- HTML Service
-- Tailwind CSS
-- Vanilla JavaScript
-
-Integration:
-
-- REST API
-- MySQL Local Database via Proxy Server
-- External Services
-
-Development Support:
-
-- GitHub Copilot Agent
-- AI Assisted Development Workflow
+- Understanding requirements
+- Designing solutions
+- Writing maintainable code
+- Reviewing implementation
+- Improving quality
 
 ---
 
-# Before Generating Code
+# Core Principle
 
-You MUST understand the project before writing code.
+Always prioritize:
+Read
 
-Read documentation in this order:
+↓
 
-## Project Foundation
-docs/00_AI_INSTRUCTIONS.md
+Understand
+
+↓
+
+Analyze
+
+↓
+
+Design
+
+↓
+
+Implement
+
+↓
+
+Review
+
+↓
+
+Test
+
+↓
+
+Document
+
+
+Never skip steps.
+
+---
+
+# Documentation First Policy
+
+Before generating any code:
+
+You MUST read and understand:
+
+
+docs/README.md
+
+docs/30_AI_CONTEXT.md
+
+docs/PROJECT_RULES.md
+
+
+Then review related documents:
+
+
 docs/01_PROJECT_OVERVIEW.md
+
 docs/02_SYSTEM_ARCHITECTURE.md
+
 docs/03_UI_UX_GUIDELINES.md
+
 docs/04_DATABASE_SCHEMA.md
+
 docs/05_API_SPECIFICATION.md
+
 docs/06_AUTHENTICATION_RBAC.md
+
 docs/07_CODING_STANDARDS.md
+
 docs/08_COMPONENT_LIBRARY.md
+
 docs/09_FOLDER_STRUCTURE.md
 
 
----
+For AI development workflow:
 
-## Project Rules and AI Context
-
-
-docs/PROJECT_RULES.md
-docs/30_AI_CONTEXT.md
-
-
----
-
-## AI Development Guides
+Review:
 
 
 docs/31_COPILOT_AGENT_GUIDE.md
+
 docs/32_PROMPT_TEMPLATES.md
 
+docs/38_COPILOT_PROMPT_LIBRARY.md
+
+docs/39_COPILOT_AGENT_EXAMPLES.md
+
+
+Never start implementation without understanding project context.
 
 ---
 
-## Enterprise Operation Guides
+# Source of Truth
+
+The following files are authoritative:
+
+## Architecture
+
+
+docs/02_SYSTEM_ARCHITECTURE.md
+
+
+## Coding Rules
+
+
+docs/07_CODING_STANDARDS.md
+
+
+## AI Knowledge
+
+
+docs/30_AI_CONTEXT.md
+
+
+## Security
 
 
 docs/33_SECURITY_GUIDE.md
+
+
+## Deployment
+
+
 docs/34_DEPLOYMENT_GUIDE.md
-docs/35_DEVELOPMENT_WORKFLOW.md
-docs/36_AI_AGENT_OPERATION_GUIDE.md
 
 
 ---
 
-Before coding:
+# Development Behavior
 
-You must:
+Before writing code:
 
-1. Understand requirements
-2. Review architecture
-3. Identify affected components
-4. Create implementation plan
+Always:
 
-Do not generate code when requirements are unclear.
-
-Ask clarification questions first.
+1. Analyze requirement
+2. Identify affected modules
+3. Explain implementation approach
+4. List files to create or modify
+5. Wait for approval when changes are significant
 
 ---
 
 # Architecture Rules
 
-The project follows layered architecture.
+Follow:
 
 
-Frontend
+MVC Architecture
+
+Presentation Layer
 
 ↓
 
@@ -155,223 +198,251 @@ Repository Layer
 
 ↓
 
-Model Layer
+Data Source
+
+
+---
+
+# Design Principles
+
+Follow:
+
+- Separation of concerns
+- Single Responsibility Principle
+- Don't Repeat Yourself
+- Clean Code principles
+- Reusable components
+- Maintainable structure
+
+---
+
+# Technology Stack
+
+## Backend
+
+Google Apps Script V8
+
+Use:
+
+- Classes
+- ES2022 syntax
+- Services
+- Repository Pattern
+
+
+## Database
+
+Primary:
+
+Google Sheets
+
+
+Optional:
+
+External database through API layer.
+
+Example:
+
+
+Google Apps Script
 
 ↓
 
-Data Source
+REST API
 
-(Google Sheets / MySQL)
+↓
+
+Node.js
+
+↓
+
+MySQL
 
 
----
-
-# Layer Responsibilities
-
-## Presentation Layer
-
-Responsible for:
-
-- UI rendering
-- User interaction
-- Client-side validation
-
-Must not contain:
-
-- Business rules
-- Database operations
+Never connect directly to unsecured databases.
 
 ---
 
-## Controller Layer
+## Frontend
 
-Responsible for:
+Technology:
 
-- Request handling
-- API endpoints
-- Input processing
-- Response formatting
+- HTML Service
+- Tailwind CSS
+- Vanilla JavaScript
 
----
 
-## Service Layer
+Requirements:
 
-Responsible for:
-
-- Business logic
-- Workflow processing
-- Validation rules
+- Responsive
+- Mobile First
+- Dark Mode
+- Accessible
+- Reusable components
 
 ---
 
-## Repository Layer
+## Visualization
 
-Responsible for:
+Use:
 
-- Data access
-- CRUD operations
-- Database communication
+Chart.js
 
 ---
 
-## Model Layer
+## Icons
 
-Responsible for:
+Use:
 
-- Data structure
-- Object representation
-- Data validation model
-
----
-
-## Configuration Layer
-
-Responsible for:
-
-- Application settings
-- Environment configuration
-- Feature flags
+Material Symbols
 
 ---
 
 # Coding Standards
 
-## Always
-
-Follow:
-
-- ES2022 JavaScript
-- Google Apps Script V8
-- Modular design
-- Separation of concerns
+Always:
 
 Use:
 
-- const / let
-- async / await when applicable
-- JSDoc comments
-- camelCase variables
-- PascalCase classes
 
-Functions should be:
+const
+
+let
+
+async/await
+
+ES2022
+
+JSDoc
+
+camelCase
+
+PascalCase classes
+
+
+Functions:
 
 - Small
 - Focused
-- Reusable
-- Testable
+- Easy to test
+
+
+Classes:
+
+- Single responsibility
+- Clear purpose
 
 ---
 
-# Error Handling
+# Error Handling Rules
 
-Always:
-
-- Use try/catch where appropriate
-- Return meaningful errors
-- Log important failures
-- Avoid exposing sensitive information
-
-Example:
+Every important operation must include:
 
 
 try {
 
-executeOperation();
-
 }
+
 catch(error){
 
-logError(error);
-
-return safeResponse();
-
 }
 
 
+Include:
+
+- User-friendly message
+- Logging
+- Error tracking
+
+Never expose:
+
+- Password
+- Token
+- Secret
+- Database credential
+
 ---
 
-# Never
-
-Do not:
-
-- Write duplicated code
-- Create unnecessary files
-- Hard-code configuration
-- Store secrets in code
-- Skip validation
-- Ignore existing architecture
-- Modify unrelated components
-
----
-
-# Security Requirements
+# Security Rules
 
 Always:
 
-- Validate user input
-- Apply RBAC permission checks
-- Protect sensitive data
-- Follow security guidelines
-- Avoid credential exposure
-- Consider audit logging
+Protect:
+
+- Credentials
+- Personal information
+- API tokens
+- Sensitive data
+
 
 Never:
 
-- Store API keys in source code
-- Expose passwords
-- Bypass authorization
-- Disable security controls
+
+Hard-code secrets
+
+Store passwords directly
+
+Expose database credentials
+
+Skip validation
+
 
 ---
 
 # Authentication and Authorization
 
-The system uses:
+When implementing security:
 
-Role Based Access Control (RBAC)
-
-Flow:
+Follow:
 
 
-User
+Authentication
 
 ↓
 
-Role
+Session
 
 ↓
 
-Permission
+Authorization
 
 ↓
 
-Resource
-
-↓
-
-Action
+Permission Check
 
 
-Every protected operation must verify permission.
+RBAC must be enforced at:
+
+- Controller
+- Service
+- UI level
 
 ---
 
-# UI/UX Standards
+# Google Apps Script Rules
 
-Create modern SaaS interfaces.
+Follow:
 
-Requirements:
+- Proper authorization handling
+- Minimal permission scopes
+- Efficient Spreadsheet operations
+- Avoid unnecessary API calls
 
-- Responsive Design
-- Mobile First
-- Dark Mode Support
-- Clean Layout
-- Accessibility
-- Loading Skeleton
-- Toast Notification
-- Error Feedback
+Prefer:
 
-Design inspiration:
+Batch operations
+
+Instead of:
+
+Loop + Spreadsheet calls
+
+---
+
+# UI/UX Rules
+
+Create modern SaaS interface.
+
+Reference:
 
 - Google Workspace
 - Notion
@@ -379,227 +450,285 @@ Design inspiration:
 - Vercel
 - Supabase
 
----
 
-# Frontend Rules
+Include when appropriate:
 
-Use:
-
-- HTML5
-- Tailwind CSS
-- Vanilla JavaScript
-- Component-based thinking
-
-Avoid:
-
-- Inline CSS
-- Inline JavaScript
-- Large monolithic files
+- Loading state
+- Empty state
+- Error state
+- Toast notification
+- Confirmation dialog
+- Responsive layout
 
 ---
 
-# Backend Rules
+# File Structure Rules
 
-Google Apps Script:
+Before creating files:
 
-Follow:
+Review:
 
-- Modular services
-- Clear APIs
-- Validation
-- Error handling
-- Logging
 
-Avoid:
+docs/09_FOLDER_STRUCTURE.md
 
-- Large single Code.gs files
-- Mixed responsibilities
+
+Never create random files.
+
+Use existing patterns.
 
 ---
 
-# Database Rules
+# Feature Development Workflow
 
-Google Sheets is the primary database.
+For every feature:
 
-Always:
+## Step 1
 
-- Validate data
-- Document schema
-- Use repository layer
-- Protect sensitive fields
+Understand requirement
 
-For MySQL integration:
+## Step 2
 
-Use:
+Create implementation plan
 
-- API layer
-- Proxy service
-- Secure configuration
+## Step 3
 
----
+Design database changes
 
-# Development Workflow
+## Step 4
 
-Before implementation:
+Design architecture
 
+## Step 5
 
-Requirement
+Implement
 
-↓
-
-Analysis
-
-↓
-
-Planning
-
-↓
-
-Architecture
-
-↓
-
-Implementation
-
-↓
-
-Review
-
-↓
-
-Testing
-
-↓
-
-Documentation
-
-
----
-
-# AI Agent Implementation Process
-
-For every task:
-
-Step 1:
-
-Analyze requirement
-
-Step 2:
-
-Explain approach
-
-Step 3:
-
-List affected files
-
-Step 4:
-
-Implement solution
-
-Step 5:
+## Step 6
 
 Review code
 
-Step 6:
+## Step 7
 
-Suggest testing
+Create tests
 
-Step 7:
+## Step 8
 
 Update documentation
 
 ---
 
-# Output Requirements
+# Code Generation Rules
 
 Every generated file must:
 
-- Follow project structure
-- Be production-ready
 - Compile successfully
-- Include documentation
+- Follow project structure
+- Include comments
 - Include error handling
 - Be reusable
-- Follow security rules
+- Be maintainable
 
 ---
 
-# Code Review Requirement
+# Before Modifying Existing Code
 
-Before final response:
+Always:
 
-Review generated solution.
+Explain:
 
-Check:
+
+Files affected
+
+Current problem
+
+Proposed solution
+
+Potential risks
+
+
+Then modify.
+
+---
+
+# Code Review Mode
+
+When requested:
+
+Act as:
+
+Principal Software Architect
+
+Review:
 
 - Architecture
 - Security
 - Performance
 - Maintainability
-- Testing
-- Documentation
+- Technical debt
+
+Provide:
+
+- Issues
+- Severity
+- Recommendations
 
 ---
 
-# Deployment Awareness
+# Debugging Mode
 
-Before suggesting deployment:
+When debugging:
 
-Verify:
+Do not immediately change code.
 
-- Configuration
-- Security
-- Testing status
-- Backup availability
-- Rollback possibility
+First:
 
----
-
-# AI Agent Behavior Rules
-
-The AI Agent must:
-
-✓ Read documentation first
-
-✓ Understand before coding
-
-✓ Explain important decisions
-
-✓ Follow architecture
-
-✓ Protect security
-
-✓ Maintain consistency
-
-✓ Improve documentation
+Analyze:
 
 
-The AI Agent must not:
+Problem
 
-✗ Guess unknown requirements
+↓
 
-✗ Create random architecture
+Root Cause
 
-✗ Ignore project rules
+↓
 
-✗ Expose secrets
+Impact
 
-✗ Modify production without approval
+↓
+
+Solution
+
+
+Then provide fix.
 
 ---
 
-# Completion Criteria
+# Documentation Update Rule
 
-A task is considered complete when:
+After major changes:
 
-- Requirement is satisfied
-- Code is reviewed
-- Security is considered
-- Testing is addressed
-- Documentation is updated
+Update:
+
+
+README
+
+AI Context
+
+Architecture docs
+
+API docs
+
+Security docs
+
+
+Documentation must always match implementation.
+
+---
+
+# AI Agent Communication Style
+
+When responding:
+
+Prefer:
+
+
+Analysis
+
+Plan
+
+Implementation
+
+Explanation
+
+Testing
+
+Documentation Update
+
+
+Avoid:
+
+- Random code dumping
+- Unexplained changes
+- Assumptions
+
+---
+
+# Production Readiness Checklist
+
+Before completing a task:
+
+Confirm:
+
+
+[ ] Architecture followed
+
+[ ] Security reviewed
+
+[ ] Error handling included
+
+[ ] Validation implemented
+
+[ ] Testing considered
+
+[ ] Documentation updated
+
+[ ] Deployment impact reviewed
+
+
+---
+
+# Forbidden Actions
+
+Never:
+
+❌ Ignore repository documentation
+
+❌ Create duplicate components
+
+❌ Break architecture
+
+❌ Hard-code credentials
+
+❌ Skip validation
+
+❌ Modify unrelated files
+
+❌ Generate incomplete placeholders
+
+❌ Leave TODO without approval
+
+---
+
+# Final Rule
+
+The goal is not only to make code work.
+
+The goal is to create:
+
+
+Secure
+
+↓
+
+Maintainable
+
+↓
+
+Scalable
+
+↓
+
+Production-ready
+
+↓
+
+Enterprise-quality Software
+
 
 ---
 
 # End of GitHub Copilot Instructions
 
-Version 2.0
+Version 3.0
+
+GAS Enterprise Starter Kit
