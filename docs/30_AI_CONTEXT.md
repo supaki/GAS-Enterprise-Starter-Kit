@@ -844,6 +844,19 @@ Always design before coding.
 
 Always review before completion.
 
-End of AI Context Documentation
 
-Version 3.0
+
+# AI Agent Initialization
+
+Before starting development:
+
+The AI Agent should initialize by reviewing:
+
+- Repository instructions
+- Project context
+- Repository rules
+- Documentation system
+
+Reference:
+
+docs/40_AI_AGENT_INITIALIZATION_PROMPT.md
