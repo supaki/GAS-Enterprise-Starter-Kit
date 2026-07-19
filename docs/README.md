@@ -1,230 +1,207 @@
-# GAS Enterprise Starter Kit Documentation
+<!-- ====================================================================== -->
+<!-- File: docs/README.md -->
+<!-- ====================================================================== -->
+
+# Project Documentation
 
 Version 2.0
 
+GAS Enterprise Starter Kit Documentation
+
 ---
 
-# Overview
+# Purpose
 
-This folder contains the complete documentation for the **GAS Enterprise Starter Kit**.
+This folder contains the complete project documentation for the GAS Enterprise Starter Kit.
 
 The documentation is designed for:
 
 - Developers
-- GitHub Copilot Agent
-- Project Maintainers
 - System Architects
-- UI/UX Designers
+- GitHub Copilot Agent
+- AI Coding Assistants
+- Project Managers
+- System Administrators
 
-The goal is to ensure that every generated application follows the same architecture, coding standards, UI principles, security requirements, and development workflow.
+The objectives are:
+
+- Maintain project knowledge
+- Support AI-assisted development
+- Standardize development practices
+- Improve software quality
+- Enable long-term maintenance
 
 ---
 
 # Documentation Structure
 
-## Phase 1 — Foundation
+```text
+docs/
 
-| File | Description |
-|------|-------------|
-|00_AI_INSTRUCTIONS.md|Instructions for AI Agents|
-|01_PROJECT_OVERVIEW.md|Project overview and objectives|
-|02_SYSTEM_ARCHITECTURE.md|System architecture|
-|03_UI_UX_GUIDELINES.md|UI/UX standards|
-|04_DATABASE_SCHEMA.md|Database schema|
-|05_API_SPECIFICATION.md|API design|
+├── Project Foundation
 
----
+├── System Design
 
-## Phase 2 — Development Standards
+├── Development Guide
 
-| File | Description |
-|------|-------------|
-|06_AUTHENTICATION_RBAC.md|Authentication & RBAC|
-|07_CODING_STANDARDS.md|Coding standards|
-|08_COMPONENT_LIBRARY.md|Reusable UI components|
-|09_FOLDER_STRUCTURE.md|Project structure|
-|10_DEPLOYMENT_GUIDE.md|Deployment guide|
-|11_TESTING_GUIDE.md|Testing guide|
-|12_SECURITY_GUIDE.md|Security standards|
+├── AI Agent Guide
 
----
+├── Security Guide
 
-## Phase 3 — Enterprise Design
+├── Deployment Guide
 
-| File | Description |
-|------|-------------|
-|13_FEATURE_ROADMAP.md|Feature roadmap|
-|14_PROMPT_LIBRARY.md|Prompt collection|
-|15_DESIGN_SYSTEM.md|Design system|
-|16_USER_FLOW.md|User flow|
-|17_BUSINESS_RULES.md|Business rules|
-|18_ERROR_HANDLING.md|Error handling|
-|19_PERFORMANCE_GUIDE.md|Performance optimization|
+└── Operation Guide
 
----
+Documentation Index
+Phase 1 — Project Foundation & Analysis
+Project Understanding
+File	Description
+00_*	AI Instructions and Project Foundation
+01_*	Project Overview
+02_*	System Architecture
+03_*	UI/UX Guidelines
+04_*	Database Design
+05_*	API Specification
+06_*	Authentication and RBAC
+07_*	Coding Standards
+08_*	Component Library
+09_*	Project Structure
+Phase 2 — Development & Agent Workflow
+Development Knowledge Base
+File	Description
+10_* - 20_*	Development Specifications
+21_* - 29_*	Implementation Guides
+30_AI_CONTEXT.md	AI Project Context Management
+AI Development Documentation
+GitHub Copilot Agent
+File	Description
+31_COPILOT_AGENT_GUIDE.md	How to use GitHub Copilot Agent
+32_PROMPT_TEMPLATES.md	Enterprise Prompt Library
+Phase 3 — Quality, Security & Production Readiness
+Enterprise Operation Guides
+File	Description
+33_SECURITY_GUIDE.md	Security Standards and Practices
+34_DEPLOYMENT_GUIDE.md	Deployment and Release Process
+35_DEVELOPMENT_WORKFLOW.md	Software Development Workflow
+36_AI_AGENT_OPERATION_GUIDE.md	AI Agent Operation Standard
+AI Agent Reading Order
 
-## Phase 4 — Advanced Development
+GitHub Copilot Agent should read documents in this order:
 
-| File | Description |
-|------|-------------|
-|20_COPILOT_WORKFLOW.md|Copilot workflow|
-|21_PROMPT_ENGINEERING.md|Prompt engineering|
-|22_UI_COMPONENT_SPEC.md|UI specification|
-|23_GOOGLE_SHEET_STRUCTURE.md|Google Sheets structure|
-|24_GAS_BEST_PRACTICES.md|Google Apps Script best practices|
-|25_JAVASCRIPT_GUIDE.md|JavaScript guide|
-|26_HTML_TEMPLATE_GUIDE.md|HTML template guide|
-|27_CSS_GUIDE.md|Tailwind CSS guide|
-|28_RELEASE_NOTE_TEMPLATE.md|Release note template|
-|29_CHANGELOG.md|Changelog standard|
-|30_AI_CONTEXT.md|AI knowledge base|
-
----
-
-# Reading Order
-
-Recommended order:
-
-```
-00
+1. .github/copilot-instructions.md
 
 ↓
 
-01
+2. .github/copilot-context.md
 
 ↓
 
-02
+3. .github/copilot-rules.md
 
 ↓
 
-03
+4. docs/README.md
 
 ↓
 
-04
+5. docs/30_AI_CONTEXT.md
 
 ↓
 
-05
+6. docs/31_COPILOT_AGENT_GUIDE.md
 
 ↓
 
-06-12
+7. docs/32_PROMPT_TEMPLATES.md
 
 ↓
 
-13-19
+8. docs/33_SECURITY_GUIDE.md
 
 ↓
 
-20-30
-```
-
----
-
-# Architecture
-
-The entire project follows:
-
-```
-MVC
-
-+
-
-Clean Architecture
-
-+
-
-Repository Pattern
-
-+
-
-Service Layer
-```
-
----
-
-# Technology Stack
-
-Backend
-
-- Google Apps Script
-
-Database
-
-- Google Sheets
-
-Frontend
-
-- HTML5
-- Tailwind CSS
-- JavaScript ES6+
-
-Development
-
-- GitHub
-- GitHub Copilot Agent
-- VS Code
-- clasp
-
----
-
-# UI Standard
-
-Applications generated from this starter kit should provide:
-
-- Modern SaaS Dashboard
-- Responsive Layout
-- Sidebar Navigation
-- Navbar
-- Dashboard Cards
-- Data Tables
-- Charts
-- Forms
-- Modals
-- Toast Notifications
-- Loading Skeletons
-- Dark Mode
-
----
-
-# Coding Principles
-
-All source code should be:
-
-- Modular
-- Maintainable
-- Secure
-- Reusable
-- Well documented
-
----
-
-# AI Development Workflow
-
-```
-Requirement
+9. docs/34_DEPLOYMENT_GUIDE.md
 
 ↓
 
+10. docs/35_DEVELOPMENT_WORKFLOW.md
+
+↓
+
+11. docs/36_AI_AGENT_OPERATION_GUIDE.md
+Documentation Usage
+Before Development
+
+Read:
+
+Project Overview
 Architecture
+Coding Standards
+Security Rules
+During Development
+
+Use:
+
+Prompt Templates
+Development Workflow
+AI Agent Guide
+Before Release
+
+Review:
+
+Security Guide
+Deployment Guide
+Testing Guidelines
+AI Agent Rules
+
+When working with this repository:
+
+The AI Agent must:
+
+✓ Read documentation first
+
+✓ Understand architecture
+
+✓ Follow coding standards
+
+✓ Follow security requirements
+
+✓ Generate maintainable code
+
+✓ Create tests
+
+✓ Update documentation
+
+The AI Agent must not:
+
+✗ Ignore project rules
+
+✗ Create unrelated files
+
+✗ Introduce new architecture without approval
+
+✗ Expose sensitive information
+
+Documentation Maintenance
+
+Documentation must be updated when:
+
+Adding new features
+Changing architecture
+Changing database design
+Changing API
+Changing workflow
+Changing security rules
+Documentation Update Workflow
+Change Request
 
 ↓
 
-Database
+Implementation
 
 ↓
 
-UI
-
-↓
-
-Backend
-
-↓
-
-Testing
+Documentation Update
 
 ↓
 
@@ -232,66 +209,40 @@ Review
 
 ↓
 
-Deployment
-```
+Release
+Repository Knowledge Structure
+Repository
 
----
+├── .github
 
-# GitHub Copilot
+│   ├── copilot-instructions.md
 
-Before generating code, GitHub Copilot should review:
+│   ├── copilot-context.md
 
-1. .github/copilot-instructions.md
+│   └── copilot-rules.md
 
-2. .github/copilot-context.md
 
-3. .github/copilot-rules.md
+├── docs
 
-4. Relevant documentation inside this folder
+│   ├── Architecture Knowledge
 
-5. Existing source code
+│   ├── Development Knowledge
 
----
+│   ├── AI Knowledge
 
-# Recommended Repository Structure
+│   ├── Security Knowledge
 
-```
-.github/
-docs/
-src/
-tests/
-assets/
-```
+│   └── Operation Knowledge
 
----
 
-# Documentation Maintenance
+└── Source Code
+Future Documentation
 
-Whenever the project changes:
+Recommended future additions:
 
-Update the related documentation immediately.
-
-Examples:
-
-- New API → Update API Specification
-- New Database → Update Database Schema
-- New UI → Update Component Library
-- New Business Logic → Update Business Rules
-
----
-
-# Contributing
-
-All contributors should follow:
-
-- Project Architecture
-- Coding Standards
-- Security Guide
-- GAS Best Practices
-- UI Design System
-
----
-
-# Final Goal
-
-This documentation enables developers and GitHub Copilot Agent to build consistent, enterprise-grade Google Apps Script applications with modern SaaS UI, maintainable architecture, and production-ready quality.
+File	Purpose
+37_REPOSITORY_SETUP_GUIDE.md	Environment Setup
+38_ARCHITECTURE_DECISION_RECORD.md	Architecture Decisions
+39_TROUBLESHOOTING_GUIDE.md	Problem Resolution
+40_USER_MANUAL.md	End User Documentation
+End of Documentation Index
