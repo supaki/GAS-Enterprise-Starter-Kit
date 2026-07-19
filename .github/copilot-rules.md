@@ -1,382 +1,325 @@
-# GitHub Copilot Project Rules
+<!-- ====================================================================== -->
+<!-- File: .github/copilot-rules.md -->
+<!-- Version: 2.0 -->
+<!-- ====================================================================== -->
 
-Version: 2.0
+# GitHub Copilot Development Rules
+
+Version 2.0
+
+GAS Enterprise Starter Kit
 
 ---
 
 # Purpose
 
-This document defines mandatory rules for GitHub Copilot Agent when generating, modifying, reviewing, or refactoring code in this repository.
+This document defines mandatory development rules for AI Agent and developers.
 
-These rules override personal coding preferences unless explicitly instructed otherwise.
+Rules apply to:
 
----
-
-# Primary Objective
-
-Always generate:
-
-- Production-ready code
-- Maintainable architecture
-- Secure implementation
-- Modern UI
-- Reusable components
+- Code generation
+- Code modification
+- Architecture decisions
+- Security implementation
+- Documentation updates
 
 ---
 
-# Technology Stack
+# General Rules
 
-Backend
+Always:
 
-- Google Apps Script (V8)
+✓ Understand requirements first
 
-Database
+✓ Follow repository architecture
 
-- Google Sheets
+✓ Reuse existing patterns
 
-Frontend
+✓ Keep changes focused
 
-- HTML5
-- Tailwind CSS
-- JavaScript ES6+
+✓ Document important decisions
 
-Architecture
 
-- MVC
-- Clean Architecture
-- Repository Pattern
-- Service Layer
+Never:
 
----
+✗ Create unnecessary complexity
 
-# Architecture Rules
+✗ Ignore existing code structure
 
-ALWAYS
+✗ Modify unrelated files
 
-✔ Follow MVC
-
-✔ Separate UI from Business Logic
-
-✔ Use Service Layer
-
-✔ Use Repository Pattern
-
-✔ Keep components reusable
-
-✔ Keep modules independent
-
-NEVER
-
-✘ Put business logic in HTML
-
-✘ Access Google Sheets from UI
-
-✘ Duplicate business logic
-
-✘ Mix Controller and Service
+✗ Hard-code sensitive information
 
 ---
 
-# Google Apps Script Rules
+# File Organization Rules
 
-Always
+Follow:
+Feature
 
-✔ Use const / let
+├── Controller
 
-✔ Use V8 Runtime
+├── Service
 
-✔ Use getValues()
+├── Repository
 
-✔ Use setValues()
+├── Model
 
-✔ Batch operations
+├── UI
 
-✔ Use PropertiesService
+└── Documentation
 
-✔ Use CacheService when appropriate
-
-Never
-
-✘ Read one cell at a time
-
-✘ Write one row at a time
-
-✘ Hard-code Spreadsheet IDs
-
-✘ Hard-code credentials
-
----
-
-# Google Sheets Rules
-
-Every sheet should have:
-
-- Primary Key
-- Audit Fields
-- Fixed Schema
-- Validation
-
-Every table should include:
-
-- createdAt
-- createdBy
-- updatedAt
-- updatedBy
-
----
-
-# UI Rules
-
-Always create:
-
-- Responsive Layout
-- Modern SaaS Design
-- Sidebar
-- Navbar
-- Cards
-- Tables
-- Modal
-- Toast Notification
-- Loading State
-- Empty State
-- Dark Mode
-
-Never use:
-
-- Bootstrap
-- jQuery
-- Inline CSS
-- Inline JavaScript
-
----
-
-# JavaScript Rules
-
-Use:
-
-- ES6+
-- Classes
-- Arrow Functions
-- Template Literals
-- Destructuring
-- Spread Operator
-
-Avoid:
-
-- var
-- Callback Hell
-- Global Variables
 
 ---
 
 # Naming Convention
 
-Files
+## JavaScript Variables
 
-PascalCase
-
-Example
-
-```
-UserService.gs
-```
-
-Functions
+Use:
 
 camelCase
 
-```
-getUsers()
-```
+Example:
 
+```javascript
+userProfile
+patientData
 Classes
+
+Use:
 
 PascalCase
 
-```
-UserRepository
-```
+Example:
 
-Constants
+UserService
+ReportController
+Functions
 
-UPPER_CASE
+Use:
 
-```
-MAX_RETRY
-```
+Verb + Description
 
----
+Example:
 
-# API Rules
+getUserData()
 
-Every API must return:
+createReport()
 
-Success
+validatePermission()
+JavaScript Rules
 
-```json
+Use:
+
+ES2022
+const
+let
+Arrow Functions
+Async/Await
+
+Avoid:
+
+var
+Global variables
+Duplicate functions
+Google Apps Script Rules
+
+Organize code:
+
+Code.gs
+
+↓
+
+Controllers
+
+↓
+
+Services
+
+↓
+
+Repositories
+
+↓
+
+Utilities
+
+Avoid:
+
+Single large script file
+Mixed responsibilities
+Frontend Rules
+
+Use:
+
+HTML5
+Tailwind CSS
+Vanilla JavaScript
+
+Must support:
+
+Responsive design
+Mobile first
+Accessibility
+
+Avoid:
+
+Inline CSS
+Inline JavaScript
+Duplicate components
+Database Rules
+
+Google Sheets:
+
+Must:
+
+Define schema
+Validate data
+Use Repository layer
+Protect sensitive columns
+
+Never:
+
+Access sheets directly from UI
+Delete data without validation
+API Rules
+
+API must include:
+
+Validation
+Error handling
+Response format
+Logging
+
+Example response:
+
 {
-  "success": true,
-  "data": {}
+ "success": true,
+ "data": {}
 }
-```
+Security Rules
 
-Failure
+Mandatory:
 
-```json
-{
-  "success": false,
-  "message": "Error"
-}
-```
+Validate input
+Check authorization
+Protect secrets
+Log important actions
 
----
+Never:
 
-# Error Handling Rules
+Commit credentials
+Expose tokens
+Skip permission checks
+Authentication Rules
 
-Every external operation must use:
+All protected features must:
 
-```
-try
+Verify:
 
-↓
-
-catch
+User
 
 ↓
 
-log
+Role
 
 ↓
 
-return standard response
-```
+Permission
 
-Never ignore exceptions.
+↓
 
----
+Action
+Error Handling Rules
 
-# Security Rules
+Always:
 
-Always
+Catch errors
+Return safe messages
+Log details internally
 
-✔ Validate Input
+Never:
 
-✔ Escape Output
+Display system errors directly
+Hide important failures
+Testing Rules
 
-✔ Check Permissions
+Every feature should consider:
 
-✔ Use RBAC
+Unit Testing
+Integration Testing
+User Acceptance Testing
+Documentation Rules
 
-✔ Protect Sensitive Data
+Update documentation when:
 
-Never
+Adding feature
+Changing architecture
+Changing API
+Changing database
+Changing workflow
+Git Rules
 
-✘ Hard-code Passwords
+Commit format:
 
-✘ Hard-code Tokens
+type: description
 
-✘ Expose Stack Trace
+Allowed types:
 
-✘ Trust Client Input
+feat
+fix
+docs
+refactor
+test
+security
 
----
+Example:
 
-# Performance Rules
+feat: add user dashboard
+Deployment Rules
 
-Prefer
+Before deployment:
 
-- Batch Read
-- Batch Write
-- Cache
-- Lazy Loading
-- Pagination
+Check:
 
-Avoid
+Testing complete
+Security reviewed
+Backup available
+Configuration verified
+AI Agent Rules
 
-- Nested Spreadsheet calls
-- Duplicate queries
-- Heavy loops
+AI Agent must:
 
----
+✓ Explain plan before major changes
 
-# Documentation Rules
+✓ Identify affected files
 
-Whenever a new feature is added:
+✓ Follow architecture
 
-Update if needed:
+✓ Review generated code
 
-- Database Schema
-- API Specification
-- Business Rules
-- Release Note
-- Changelog
+✓ Suggest tests
 
----
+AI Agent must not:
 
-# Copilot Workflow
+✗ Deploy without approval
 
-Before Coding
+✗ Change architecture silently
 
-1. Read Requirement
-2. Review Existing Code
-3. Review Documentation
-4. Explain Implementation
+✗ Remove security controls
 
-During Coding
+✗ Generate incomplete code
 
-- Follow Architecture
-- Keep Code Clean
-- Add Validation
-- Add Error Handling
+Quality Standard
 
-After Coding
+Generated code must be:
 
-Provide:
+Readable
+Maintainable
+Secure
+Tested
+Documented
+End of Copilot Rules
 
-- Summary
-- Changed Files
-- Testing Guide
-- Improvement Suggestions
-
----
-
-# Quality Checklist
-
-Every generated code must satisfy:
-
-- Clean Architecture
-- MVC
-- Responsive UI
-- Security
-- Validation
-- Error Handling
-- Performance
-- Documentation
-
----
-
-# Definition of Done
-
-A task is complete only when:
-
-- Code Compiles
-- UI Works
-- API Works
-- Validation Exists
-- Error Handling Exists
-- Documentation Updated
-- Ready for Production
-
----
-
-# Final Rule
-
-When documentation conflicts with generated code:
-
-Documentation is the source of truth.
-
-Never invent architecture.
-
-Never ignore project standards.
-
-Always prioritize maintainability over short code.
+Version 2.0
